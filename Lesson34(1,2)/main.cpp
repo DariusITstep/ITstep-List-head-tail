@@ -1,109 +1,70 @@
 #include "List.h"
+#include "Srack.h"
+#include "Queue.h"
 
+// УВАГА! 2 МЕЙНА, ДЛЯ РОБОТИ РОЗКОМЕНТУЙТЕ БУДЬ-ЯКИЙ 
+
+//int main()
+//{
+//    List<int>* list;
+//
+//    // STACK
+//    list = new Stack<int>();
+//    cout << "stack: ";
+//
+//    list->push(1);
+//    list->push(2);
+//    list->push(3);
+//    list->show();
+//
+//    cout << "pop: " << list->pop() << endl;  
+//    cout << "new stack: ";
+//    list->show();
+//
+//    delete list;
+//    cout << endl;
+//
+//    // QUEUE
+//    list = new Queue<int>();
+//    cout << "Queue: ";
+//
+//    list->push(1);
+//    list->push(2);
+//    list->push(3);
+//    list->show();
+//
+//    cout << "pop: " << list->pop() << endl;
+//    cout << "new queue: ";
+//    list->show();
+//
+//    delete list;
+//}
+
+// Альтернативний спосіб використання, не треба чистити в ручну, деструктори самі все зроблять
 int main()
 {
-    List<int> list;
+    Stack<double> stack1;
 
-    cout << "===== EMPTY LIST =====" << endl;
-    list.Show();
+    cout << "stack: ";
+    stack1.push(1.7);
+    stack1.push(2.5);
+    stack1.push(3.1);
+    stack1.show();
+    cout << "pop: " << stack1.pop() << endl;
 
-    // ADD TO HEAD
-    cout << "\n===== ADD TO HEAD =====" << endl;
+    cout << "new stack: ";
+    stack1.show();
+    cout << endl;
 
-    list.AddToHead(1);
-    list.AddToHead(2);
-    list.AddToHead(3);
+    Queue<string> q1;
 
-    list.Show();
+    cout << "queue: ";
+    q1.push("One");
+    q1.push("Two");
+    q1.push("Three");
+    q1.show();
 
-    // ADD TO TAIL
-    cout << "\n===== ADD TO TAIL =====" << endl;
-
-    list.AddToTail(4);
-    list.AddToTail(5);
-    list.Show();
-
-    // DELETE FROM HEAD
-    cout << "\n===== DELETE FROM HEAD =====" << endl;
-    list.DeleteFromHead();
-    list.Show();
-
-    // DELETE FROM TAIL
-    cout << "\n===== DELETE FROM TAIL =====" << endl;
-    list.DeleteFromTail();
-    list.Show();
-
-    // INSERT AT
-    cout << "\n===== INSERT AT =====" << endl;
-    cout << "Insert 777 at position 1" << endl;
-    list.InsertAt(777, 1);
-    list.Show();
-
-    // DELETE AT
-    cout << "\n===== DELETE AT =====" << endl;
-    cout << "Delete element at position 2" << endl;
-    list.DeleteAt(2);
-    list.Show();
-
-    // FIND
-    cout << "\n===== FIND =====" << endl;
-    cout << "Find 777 -> ";
-    cout << list.Find(777) << endl;
-    cout << "Find 999 -> ";
-    cout << list.Find(999) << endl;
-
-    // FIND AND REPLACE
-    cout << "\n===== FIND AND REPLACE =====" << endl;
-    list.AddToTail(777);
-    list.AddToTail(777);
-    list.Show();
-
-    int replaced = list.FindAndReplace(777, 111);
-    cout << "Replaced count: " << replaced  << endl;
-
-    list.Show();
-
-    // REVERSE
-    cout << "\n===== REVERSE =====" << endl;
-    list.Reverse();
-    list.Show();
-
-    // SIZE
-    cout << "\n===== SIZE =====" << endl;
-    cout << "Size: " << list.GetSize() << endl;
-
-    // DELETE ALL
-    cout << "\n===== DELETE ALL =====" << endl;
-    list.DeleteAll();
-    list.Show();
-
-    cout << "Size: " << list.GetSize() << endl;
-
-    // COPY CONSTRUCTOR
-    cout << "\n===== COPY CONSTRUCTOR =====" << endl;
-    List<int> a;
-
-    a.AddToTail(1);
-    a.AddToTail(2);
-    a.AddToTail(3);
-
-    List<int> b = a;
-
-    cout << "List A: ";
-    a.Show();
-
-    cout << "List B: ";
-    b.Show();
-
-    // MOVE CONSTRUCTOR
-    cout << "\n===== MOVE CONSTRUCTOR =====" << endl;
-    List<int> c = std::move(a);
-
-    cout << "List C: ";
-    c.Show();
-
-    cout << "List A after move: ";
-    a.Show();
-
-    return 0;
+    cout << "pop: " << q1.pop() << endl;
+    cout << "new queue: ";
+    q1.show();
 }
